@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advokat Danijela Jelesijević Samac | Belgrade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2744;
+      --gold: #b8860b;
+      --gold-light: #d4a84b;
+      --cream: #f8f6f1;
+      --text: #2c2c2c;
+      --text-muted: #5a5a5a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--cream);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      z-index: 100;
+      display: flex;
+      gap: 0.25rem;
+    }
+    .lang-switch button {
+      background: rgba(26, 39, 68, 0.9);
+      color: white;
+      border: 1px solid var(--gold);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+    .lang-switch button:hover,
+    .lang-switch button.active {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--navy) 0%, #2a3d5c 100%);
+      background-image: 
+        linear-gradient(to bottom, rgba(26, 39, 68, 0.75), rgba(26, 39, 68, 0.9)),
+        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .hero-content {
+      max-width: 720px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+    }
+    .hero .motto {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      font-style: italic;
+      color: var(--gold-light);
+      border-left: 4px solid var(--gold);
+      padding-left: 1rem;
+      text-align: left;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .hero .description {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    section h2 {
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 0.5rem auto 0;
+    }
+
+    /* Services */
+    .services-list {
+      list-style: none;
+    }
+    .service-card {
+      display: flex;
+      gap: 1.25rem;
+      padding: 2rem 1.75rem;
+      margin-bottom: 1.25rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(26, 39, 68, 0.08);
+      border-left: 5px solid var(--gold);
+      transition: box-shadow 0.25s ease, border-left-color 0.25s ease;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(26, 39, 68, 0.12);
+      border-left-color: var(--navy);
+    }
+    .service-num {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--navy), #2a3d5c);
+      color: var(--gold-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+    }
+    .service-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+    .service-intro {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .service-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .service-bullets li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .service-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .service-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--navy);
+      color: white;
+      padding: 4rem 1.5rem;
+    }
+    .contact h2 {
+      color: white;
+    }
+    .contact h2::after {
+      background: var(--gold);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .contact-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .contact-item .label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+    }
+    .contact-item a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    .contact-item a:hover {
+      color: var(--gold-light);
+      text-decoration: underline;
+    }
+    .contact-item .value {
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button type="button" class="active" data-lang="sr">SR</button>
+    <button type="button" data-lang="en">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Advokat Danijela Jelesijević Samac</h1>
+      <p class="subtitle" data-i18n="hero.subtitle">Pravna pomoć na koju možete da se oslonite</p>
+      <p class="motto" data-i18n="hero.motto">Vi imate problem — mi ga rešavamo.</p>
+      <p class="description" data-i18n="hero.description">
+        Naša kancelarija pruža stručnu pravnu pomoć fizičkim i pravnim licima kroz savetovanje, izradu pravnih akata i zastupanje pred sudovima i državnim organima. Posvećeni smo efikasnoj zaštiti prava i interesa klijenata, uz profesionalan i diskretan pristup svakom slučaju.
+      </p>
+    </div>
+  </header>
+
+  <section class="services">
+    <h2 data-i18n="services.title">Usluge</h2>
+    <ul class="services-list">
+      <li class="service-card">
+        <span class="service-num">1</span>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="services.s1.title">Građansko pravo</h3>
+          <p class="service-intro" data-i18n="services.s1.intro">Pružamo pravnu pomoć u svim vrstama građanskopravnih odnosa, uključujući:</p>
+          <ul class="service-bullets">
+            <li data-i18n="services.s1.b1">naknadu materijalne i nematerijalne štete</li>
+            <li data-i18n="services.s1.b2">zaštitu prava ličnosti</li>
+            <li data-i18n="services.s1.b3">zastupanje u parničnim postupcima</li>
+          </ul>
+        </div>
+      </li>
+      <li class="service-card">
+        <span class="service-num">2</span>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="services.s2.title">Privredno pravo</h3>
+          <p class="service-intro" data-i18n="services.s2.intro">Savetujemo preduzetnike i privredna društva u svakodnevnom poslovanju i sporovima:</p>
+          <ul class="service-bullets">
+            <li data-i18n="services.s2.b1">osnivanje firmi i registracije promena</li>
+            <li data-i18n="services.s2.b2">izrada i analiza ugovora</li>
+            <li data-i18n="services.s2.b3">naplata potraživanja</li>
+            <li data-i18n="services.s2.b4">zastupanje u privrednim sporovima</li>
+          </ul>
+        </div>
+      </li>
+      <li class="service-card">
+        <span class="service-num">3</span>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="services.s3.title">Nekretnine i imovinsko pravo</h3>
+          <p class="service-intro" data-i18n="services.s3.intro">Obezbeđujemo pravnu sigurnost u prometu nepokretnosti:</p>
+          <ul class="service-bullets">
+            <li data-i18n="services.s3.b1">sastavljanje kupoprodajnih i poklon ugovora</li>
+            <li data-i18n="services.s3.b2">pravna provera dokumentacije i vlasništva</li>
+            <li data-i18n="services.s3.b3">uknjižbe i postupci pred katastrom</li>
+            <li data-i18n="services.s3.b4">rešavanje imovinskih sporova</li>
+          </ul>
+        </div>
+      </li>
+      <li class="service-card">
+        <span class="service-num">4</span>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="services.s4.title">Krivično pravo</h3>
+          <p class="service-intro" data-i18n="services.s4.intro">Pružamo stručnu odbranu i pravnu podršku u svim fazama postupka:</p>
+          <ul class="service-bullets">
+            <li data-i18n="services.s4.b1">odbrana okrivljenih</li>
+            <li data-i18n="services.s4.b2">zastupanje oštećenih</li>
+            <li data-i18n="services.s4.b3">pravna pomoć tokom saslušanja i istrage</li>
+          </ul>
+        </div>
+      </li>
+      <li class="service-card">
+        <span class="service-num">5</span>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="services.s5.title">Porodično pravo</h3>
+          <p class="service-intro" data-i18n="services.s5.intro">Sa posebnim senzibilitetom pristupamo porodičnim sporovima:</p>
+          <ul class="service-bullets">
+            <li data-i18n="services.s5.b1">sporazumni i parnični razvodi</li>
+            <li data-i18n="services.s5.b2">starateljstvo nad decom</li>
+            <li data-i18n="services.s5.b3">alimentacija i podela imovine</li>
+          </ul>
+        </div>
+      </li>
+      <li class="service-card">
+        <span class="service-num">6</span>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="services.s6.title">Radno pravo</h3>
+          <p class="service-intro" data-i18n="services.s6.intro">Štitimo prava zaposlenih i poslodavaca:</p>
+          <ul class="service-bullets">
+            <li data-i18n="services.s6.b1">sporovi povodom otkaza</li>
+            <li data-i18n="services.s6.b2">zaštita prava iz radnog odnosa</li>
+            <li data-i18n="services.s6.b3">izrada ugovora i internih akata</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="contact">
+    <h2 data-i18n="contact.title">Kontakt</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="label" data-i18n="contact.phone">Telefon</div>
+        <a href="tel:+381659719395">+381 65 971 9395</a>
+      </div>
+      <div class="contact-item">
+        <div class="label" data-i18n="contact.email">Email</div>
+        <a href="mailto:advokatdjs@gmail.com">advokatdjs@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="label" data-i18n="contact.location">Adresa</div>
+        <div class="value">Savska 33, 11000 Beograd</div>
+        <a href="https://www.google.com/maps/search/Savska+33+11000+Belgrade" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer">© Advokat Danijela Jelesijević Samac. Sva prava zadržana.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      sr: {
+        'hero.subtitle': 'Pravna pomoć na koju možete da se oslonite',
+        'hero.motto': 'Vi imate problem — mi ga rešavamo.',
+        'hero.description': 'Naša kancelarija pruža stručnu pravnu pomoć fizičkim i pravnim licima kroz savetovanje, izradu pravnih akata i zastupanje pred sudovima i državnim organima. Posvećeni smo efikasnoj zaštiti prava i interesa klijenata, uz profesionalan i diskretan pristup svakom slučaju.',
+        'services.title': 'Usluge',
+        'services.s1.title': 'Građansko pravo',
+        'services.s1.intro': 'Pružamo pravnu pomoć u svim vrstama građanskopravnih odnosa, uključujući:',
+        'services.s1.b1': 'naknadu materijalne i nematerijalne štete',
+        'services.s1.b2': 'zaštitu prava ličnosti',
+        'services.s1.b3': 'zastupanje u parničnim postupcima',
+        'services.s2.title': 'Privredno pravo',
+        'services.s2.intro': 'Savetujemo preduzetnike i privredna društva u svakodnevnom poslovanju i sporovima:',
+        'services.s2.b1': 'osnivanje firmi i registracije promena',
+        'services.s2.b2': 'izrada i analiza ugovora',
+        'services.s2.b3': 'naplata potraživanja',
+        'services.s2.b4': 'zastupanje u privrednim sporovima',
+        'services.s3.title': 'Nekretnine i imovinsko pravo',
+        'services.s3.intro': 'Obezbeđujemo pravnu sigurnost u prometu nepokretnosti:',
+        'services.s3.b1': 'sastavljanje kupoprodajnih i poklon ugovora',
+        'services.s3.b2': 'pravna provera dokumentacije i vlasništva',
+        'services.s3.b3': 'uknjižbe i postupci pred katastrom',
+        'services.s3.b4': 'rešavanje imovinskih sporova',
+        'services.s4.title': 'Krivično pravo',
+        'services.s4.intro': 'Pružamo stručnu odbranu i pravnu podršku u svim fazama postupka:',
+        'services.s4.b1': 'odbrana okrivljenih',
+        'services.s4.b2': 'zastupanje oštećenih',
+        'services.s4.b3': 'pravna pomoć tokom saslušanja i istrage',
+        'services.s5.title': 'Porodično pravo',
+        'services.s5.intro': 'Sa posebnim senzibilitetom pristupamo porodičnim sporovima:',
+        'services.s5.b1': 'sporazumni i parnični razvodi',
+        'services.s5.b2': 'starateljstvo nad decom',
+        'services.s5.b3': 'alimentacija i podela imovine',
+        'services.s6.title': 'Radno pravo',
+        'services.s6.intro': 'Štitimo prava zaposlenih i poslodavaca:',
+        'services.s6.b1': 'sporovi povodom otkaza',
+        'services.s6.b2': 'zaštita prava iz radnog odnosa',
+        'services.s6.b3': 'izrada ugovora i internih akata',
+        'contact.title': 'Kontakt',
+        'contact.phone': 'Telefon',
+        'contact.email': 'Email',
+        'contact.location': 'Adresa',
+        'footer': '© Advokat Danijela Jelesijević Samac. Sva prava zadržana.'
+      },
+      en: {
+        'hero.subtitle': 'Legal assistance you can rely on',
+        'hero.motto': 'You have a problem — we solve it.',
+        'hero.description': 'Our office provides expert legal assistance to individuals and legal entities through counseling, drafting legal documents, and representation before courts and state authorities. We are committed to the effective protection of our clients\' rights and interests, with a professional and discreet approach to each case.',
+        'services.title': 'Services',
+        'services.s1.title': 'Civil Law',
+        'services.s1.intro': 'We provide legal assistance in all types of civil law relations, including:',
+        'services.s1.b1': 'compensation for material and non-material damage',
+        'services.s1.b2': 'protection of personality rights',
+        'services.s1.b3': 'representation in civil proceedings',
+        'services.s2.title': 'Commercial Law',
+        'services.s2.intro': 'We advise entrepreneurs and companies in day-to-day business and disputes:',
+        'services.s2.b1': 'company formation and registration of changes',
+        'services.s2.b2': 'drafting and analysis of contracts',
+        'services.s2.b3': 'collection of claims',
+        'services.s2.b4': 'representation in commercial disputes',
+        'services.s3.title': 'Real Estate and Property Law',
+        'services.s3.intro': 'We ensure legal certainty in real estate transactions:',
+        'services.s3.b1': 'drafting sale and gift agreements',
+        'services.s3.b2': 'legal review of documentation and ownership',
+        'services.s3.b3': 'land registry entries and cadastre procedures',
+        'services.s3.b4': 'resolution of property disputes',
+        'services.s4.title': 'Criminal Law',
+        'services.s4.intro': 'We provide expert defence and legal support at all stages of proceedings:',
+        'services.s4.b1': 'defence of the accused',
+        'services.s4.b2': 'representation of victims',
+        'services.s4.b3': 'legal assistance during hearings and investigations',
+        'services.s5.title': 'Family Law',
+        'services.s5.intro': 'We approach family disputes with particular sensitivity:',
+        'services.s5.b1': 'consensual and contested divorces',
+        'services.s5.b2': 'child custody',
+        'services.s5.b3': 'maintenance and division of assets',
+        'services.s6.title': 'Labour Law',
+        'services.s6.intro': 'We protect the rights of employees and employers:',
+        'services.s6.b1': 'disputes regarding termination of employment',
+        'services.s6.b2': 'protection of rights arising from employment',
+        'services.s6.b3': 'drafting contracts and internal acts',
+        'contact.title': 'Contact',
+        'contact.phone': 'Phone',
+        'contact.email': 'Email',
+        'contact.location': 'Address',
+        'footer': '© Attorney Danijela Jelesijevic Samac. All rights reserved.'
+      }
+    };
+
+    const langButtons = document.querySelectorAll('.lang-switch button');
+    let currentLang = document.documentElement.lang || 'sr';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === 'sr' ? 'sr' : 'en';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      langButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+    });
+
+    setLang(currentLang);
+  </script>
+</body>
+</html>
